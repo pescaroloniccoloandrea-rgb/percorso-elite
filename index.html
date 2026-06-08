@@ -6,7 +6,7 @@
 <title>Battistelli Education & Consulting — Percorso Elite</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -23,8 +23,8 @@
     --olive-rule:  rgba(140,154,58,0.22);
     --rule:       rgba(240,237,230,0.07);
     --rule-mid:   rgba(240,237,230,0.12);
-    --font-display: 'Playfair Display', Georgia, serif;
-    --font-body:  'Inter', sans-serif;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body:  'DM Sans', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -397,6 +397,17 @@
   }
   .btn-wire-lg:hover { border-color: var(--olive); color: var(--olive); }
 
+  /* GARANZIA */
+  .guarantee-box {
+    display: flex; gap: 0.75rem; align-items: flex-start;
+    border: 1px solid var(--olive-rule);
+    background: var(--olive-faint);
+    padding: 1rem 1.2rem; margin-bottom: 1.5rem;
+  }
+  .guarantee-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .guarantee-txt { font-size: 0.78rem; color: var(--text); line-height: 1.6; }
+  .guarantee-txt strong { color: var(--white); font-weight: 500; }
+
   /* FOOTER */
   footer { padding: 1.4rem 3rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; background: var(--bg); }
   .f-l { font-family: var(--font-display); font-size: 0.78rem; font-style: italic; color: var(--text-dim); }
@@ -483,7 +494,7 @@
     <div class="panel-lbl">Cosa è incluso nel 1:1</div>
     <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">15 sessioni 1:1<span class="panel-sub">1 ora · con Davide Battistelli</span></div></div>
     <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">6 sessioni di role play<span class="panel-sub">1 ora · scenari reali</span></div></div>
-    <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">Assistenza WhatsApp 7/7<span class="panel-sub">risposte entro ore</span></div></div>
+    <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">Assistenza WhatsApp 7/7<span class="panel-sub">risposta entro 1h</span></div></div>
     <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">Script personalizzati<span class="panel-sub">scritti per il tuo mercato</span></div></div>
     <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">Workbook dedicato<span class="panel-sub">esercizi e framework operativi</span></div></div>
     <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">Check-up settimanali<span class="panel-sub">analisi business + KPI</span></div></div>
@@ -527,7 +538,7 @@
   <div class="inc-grid">
     <div class="inc-cell"><div class="inc-num">— 01</div><div class="inc-title">15 sessioni 1:1</div><p class="inc-desc">Un'ora ciascuna con Davide Battistelli. Lavoro preciso, feedback reale, nessuna generalizzazione.</p></div>
     <div class="inc-cell"><div class="inc-num">— 02</div><div class="inc-title">6 sessioni di role play</div><p class="inc-desc">Un'ora ciascuna su scenari costruiti sulla tua vendita reale: clienti difficili, obiezioni vere.</p></div>
-    <div class="inc-cell"><div class="inc-num">— 03</div><div class="inc-title">WhatsApp 7 giorni su 7</div><p class="inc-desc">Un cliente risponde in modo strano? Scrivi. Risposta entro ore — non quando capita.</p></div>
+    <div class="inc-cell"><div class="inc-num">— 03</div><div class="inc-title">WhatsApp 7 giorni su 7</div><p class="inc-desc">Hai un dubbio tra una sessione e l'altra? Scrivi. Risposta entro 1 ora — garantita.</p></div>
     <div class="inc-cell"><div class="inc-num">— 04</div><div class="inc-title">Script personalizzati</div><p class="inc-desc">Scritti da zero per il tuo mercato, il tuo cliente tipo, il tuo modo di comunicare. Niente template.</p></div>
     <div class="inc-cell"><div class="inc-num">— 05</div><div class="inc-title">Workbook dedicato</div><p class="inc-desc">Esercizi, framework, tracker di trattativa. Uno strumento che cresce con te durante il percorso.</p></div>
     <div class="inc-cell"><div class="inc-num">— 06</div><div class="inc-title">Check-up settimanali</div><p class="inc-desc">Analisi business e KPI. Dove le trattative si bloccano, cosa si aggiusta, come si accelera.</p></div>
@@ -550,10 +561,15 @@
         <li><span class="chk">◆</span>2 call live da 90 min a settimana</li>
         <li><span class="chk">◆</span>1 sessione training + 1 roleplay / Q&A</li>
         <li><span class="chk">◆</span>Script cold e warm call pronti</li>
+        <li><span class="chk">◆</span>Script outreach LinkedIn e Instagram</li>
         <li><span class="chk">◆</span>Correzione errori in diretta</li>
         <li><span class="chk">◆</span>Accesso community Skool</li>
         <li><span class="chk">◆</span>Registrazioni di tutte le call</li>
       </ul>
+      <div class="guarantee-box">
+        <div class="guarantee-icon">🛡</div>
+        <div class="guarantee-txt"><strong>Soddisfatto o rimborsato</strong> entro 14 giorni — oppure 2 sessioni gratuite aggiuntive.</div>
+      </div>
       <div class="pk-lbl">Investimento</div>
       <div class="pk-price"><sup>€</sup>1.500</div>
       <p class="pk-alt" style="margin-bottom: 1.5rem;">Pagamento unico</p>
@@ -575,6 +591,10 @@
         <li><span class="chk">◆</span>Analisi business iniziale</li>
         <li><span class="chk">◆</span>Check-up settimanali dei risultati</li>
       </ul>
+      <div class="guarantee-box">
+        <div class="guarantee-icon">🛡</div>
+        <div class="guarantee-txt"><strong>Soddisfatto o rimborsato</strong> entro 14 giorni — oppure 2 sessioni gratuite aggiuntive.</div>
+      </div>
       <div class="pk-lbl">Investimento</div>
       <div class="pk-price"><sup>€</sup>10.250</div>
       <p class="pk-alt">oppure <span>€11.250 in 4 rate mensili</span></p>
@@ -594,13 +614,18 @@
         <li><span class="chk">◆</span>4 settimane di formazione verticale</li>
         <li><span class="chk">◆</span>2 call live da 90 min a settimana</li>
         <li><span class="chk">◆</span>Script cold e warm call pronti</li>
+        <li><span class="chk">◆</span>Script outreach LinkedIn e Instagram</li>
         <li><span class="chk">◆</span>Accesso community Skool</li>
         <li><span class="chk">◆</span>Registrazioni di tutte le call</li>
       </ul>
+      <div class="guarantee-box" style="background: rgba(37,37,35,0.2); border-color: rgba(37,37,35,0.3);">
+        <div class="guarantee-icon">🛡</div>
+        <div class="guarantee-txt" style="color: rgba(37,37,35,0.85);"><strong>Soddisfatto o rimborsato</strong> entro 14 giorni — oppure 2 sessioni gratuite aggiuntive.</div>
+      </div>
       <div class="pk-lbl">Investimento</div>
       <div class="pb-was">Se separati: €10.250 + €1.500 = €11.750</div>
       <div class="pk-price"><sup>€</sup>11.000</div>
-      <p class="pk-alt">oppure <span>€11.800 in 4 rate mensili</span></p>
+      <p class="pk-alt">oppure <span>€11.000 in 4 rate mensili</span></p>
       <button class="btn-dark-full" onclick="window.location.href='mailto:info@battistellieducation.com?subject=Bundle%20Elite%20Setter'">Scegli il bundle →</button>
     </div>
 
@@ -616,7 +641,7 @@
   </div>
   <div class="s4grid">
     <div class="s4cell"><div class="s4lbl">Formato</div><div class="s4title">2 call da 90 min a settimana</div><p class="s4desc">Sessione 1: teorica e framework. Sessione 2: 100% role play su scenari reali. Entrambe con Davide Battistelli.</p></div>
-    <div class="s4cell"><div class="s4lbl">Contenuti</div><div class="s4title">Qualifica + presa appuntamento</div><p class="s4desc">Cold call: gatekeeper, apertura, qualifica, chiusura. Outreach: sequenze email e messaggi LinkedIn.</p></div>
+    <div class="s4cell"><div class="s4lbl">Contenuti</div><div class="s4title">Qualifica + presa appuntamento</div><p class="s4desc">Cold call: gatekeeper, apertura, qualifica, chiusura. Outreach: sequenze email, LinkedIn e Instagram.</p></div>
     <div class="s4cell"><div class="s4lbl">Classe</div><div class="s4title">5 — 10 partecipanti</div><p class="s4desc">Feedback personalizzato, lavoro sul caso concreto di ciascuno. Non corsi di massa.</p></div>
     <div class="s4cell"><div class="s4lbl">Script inclusi</div><div class="s4title">Pronti da usare subito</div><p class="s4desc">Script cold e warm call scritti per il mercato italiano. Usabili da subito, non template generici.</p></div>
   </div>
