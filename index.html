@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battistelli Education & Consulting — Percorso Elite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #252523;
+    --bg-mid:     #2E2E2B;
+    --bg-card:    #323230;
+    --text:       #9A9488;
+    --text-dim:   #6A6560;
+    --white:      #F0EDE6;
+    --olive:      #8C9A3A;
+    --olive-light:#A0AE48;
+    --olive-faint: rgba(140,154,58,0.1);
+    --olive-rule:  rgba(140,154,58,0.22);
+    --rule:       rgba(240,237,230,0.07);
+    --rule-mid:   rgba(240,237,230,0.12);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:  'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    padding: 1.3rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--rule);
+    background: rgba(37,37,35,0.97);
+    backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 100;
+  }
+
+  .brand { display: flex; align-items: center; gap: 0.8rem; }
+  .brand-mono {
+    width: 32px; height: 32px; border: 1px solid var(--olive);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 0.78rem; font-weight: 700;
+    color: var(--olive); font-style: italic; flex-shrink: 0;
+  }
+  .brand-name {
+    font-size: 0.68rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--text);
+    font-family: var(--font-body);
+  }
+
+  .nav { display: flex; gap: 2.5rem; list-style: none; }
+  .nav a { font-size: 0.62rem; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+  .nav a:hover { color: var(--olive); }
+
+  /* HERO */
+  .hero {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 100vh; border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-left {
+    padding: 6rem 4rem 5rem 3rem;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--rule);
+  }
+
+  .hero-ey {
+    font-size: 0.6rem; font-weight: 500;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--olive); margin-bottom: 2.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-ey::before { content: ''; width: 20px; height: 1px; background: var(--olive); flex-shrink: 0; }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+    font-weight: 500; line-height: 1.05;
+    color: var(--white); margin-bottom: 1.5rem;
+  }
+  .hero-title em { font-style: italic; color: var(--olive); }
+
+  .hero-sub {
+    font-size: 0.9rem; color: var(--text);
+    max-width: 400px; line-height: 1.9; margin-bottom: 2.5rem;
+  }
+
+  .hero-prices { display: flex; gap: 2.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+
+  .hp { border-top: 1px solid var(--olive-rule); padding-top: 0.8rem; }
+  .hp-l { font-size: 0.56rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--olive); margin-bottom: 0.25rem; }
+  .hp-v { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--white); }
+
+  .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+  /* HERO RIGHT */
+  .hero-right {
+    background: var(--bg-mid);
+    padding: 5rem 3rem;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+
+  .panel-lbl {
+    font-size: 0.58rem; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--olive); margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .panel-lbl::before { content: ''; width: 16px; height: 1px; background: var(--olive); flex-shrink: 0; }
+
+  .panel-row {
+    padding: 1.1rem 0; border-top: 1px solid var(--rule);
+    display: flex; gap: 0.9rem; align-items: flex-start;
+  }
+
+  .panel-dot { width: 5px; height: 5px; background: var(--olive); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+  .panel-txt { font-size: 0.82rem; color: var(--white); line-height: 1.4; }
+  .panel-sub { display: block; font-size: 0.68rem; color: var(--text-dim); margin-top: 2px; }
+
+  /* BUTTONS */
+  .btn-olive {
+    display: inline-block; padding: 0.85rem 2rem;
+    background: var(--olive); color: var(--bg);
+    font-size: 0.64rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: var(--font-body); border: none; cursor: pointer;
+    text-decoration: none; transition: background 0.25s;
+  }
+  .btn-olive:hover { background: var(--olive-light); }
+
+  .btn-wire {
+    display: inline-block; padding: 0.85rem 2rem;
+    border: 1px solid var(--rule-mid); color: var(--text);
+    font-size: 0.64rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: var(--font-body); background: transparent; cursor: pointer;
+    text-decoration: none; transition: all 0.25s;
+  }
+  .btn-wire:hover { border-color: var(--olive); color: var(--olive); }
+
+  /* SECTIONS */
+  section { padding: 5.5rem 3rem; border-bottom: 1px solid var(--rule); }
+
+  .eyebrow {
+    font-size: 0.58rem; font-weight: 500;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--olive); margin-bottom: 3rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--olive); flex-shrink: 0; }
+
+  /* INCLUSIONS */
+  .inc-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+  }
+
+  .inc-cell {
+    background: var(--bg-mid); padding: 2rem;
+    transition: background 0.3s; position: relative; overflow: hidden;
+  }
+  .inc-cell:hover { background: var(--bg-card); }
+  .inc-cell::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--olive); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .inc-cell:hover::after { transform: scaleX(1); }
+
+  .inc-num { font-family: var(--font-display); font-size: 0.68rem; font-style: italic; color: var(--olive); margin-bottom: 0.6rem; }
+  .inc-title { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
+  .inc-desc { font-size: 0.78rem; color: var(--text); line-height: 1.75; }
+
+  /* TIMELINE */
+  .timeline-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+  }
+
+  .tl-cell { background: var(--bg-mid); padding: 2rem; transition: background 0.3s; }
+  .tl-cell:hover { background: var(--bg-card); }
+
+  .tl-num {
+    font-family: var(--font-display); font-size: 3.5rem; font-weight: 700;
+    line-height: 1; color: var(--rule-mid); margin-bottom: 0.75rem;
+    -webkit-text-stroke: 1px rgba(140,154,58,0.15);
+  }
+  .tl-phase { font-size: 0.54rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--olive); margin-bottom: 0.3rem; }
+  .tl-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.4rem; }
+  .tl-desc { font-size: 0.78rem; color: var(--text); line-height: 1.75; }
+
+  /* ─── PACKS — 3 colonne ─── */
+  .packs-cols {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .pack-box {
+    background: var(--bg-mid); border: 1px solid var(--rule);
+    padding: 2.5rem; display: flex; flex-direction: column;
+    transition: border-color 0.3s; position: relative;
+  }
+  .pack-box:hover { border-color: var(--olive-rule); }
+
+  /* Setter — colonna sinistra */
+  .pack-box.setter { border-top: 2px solid var(--text-dim); }
+
+  /* 1:1 — colonna centrale */
+  .pack-box.solo { border-top: 2px solid var(--olive); }
+
+  /* Bundle — colonna destra, highlighted */
+  .pack-box.bundle {
+    background: var(--olive); border-color: var(--olive);
+  }
+  .pack-box.bundle:hover { border-color: var(--olive-light); background: var(--olive-light); }
+
+  /* Badge risparmio */
+  .saving-badge {
+    position: absolute; top: -1px; right: 1.5rem;
+    background: var(--bg); border: 1px solid var(--olive);
+    color: var(--olive); font-size: 0.54rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .pb-tag {
+    font-size: 0.54rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--olive); border: 1px solid var(--olive-rule);
+    background: var(--olive-faint);
+    display: inline-block; padding: 0.24rem 0.7rem; margin-bottom: 1.5rem; width: fit-content;
+  }
+  .pack-box.bundle .pb-tag { color: var(--bg); border-color: rgba(37,37,35,0.25); background: rgba(37,37,35,0.15); }
+  .pack-box.setter .pb-tag { color: var(--text); border-color: var(--rule-mid); background: transparent; }
+
+  .pb-nm {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-weight: 700; line-height: 1.05;
+    color: var(--white); margin-bottom: 0.25rem;
+  }
+  .pb-nm .sub { display: block; font-size: 0.5em; font-weight: 400; font-style: italic; color: rgba(240,237,230,0.5); font-family: var(--font-display); margin-top: 0.1rem; }
+  .pack-box.bundle .pb-nm { color: var(--bg); }
+  .pack-box.bundle .pb-nm .sub { color: rgba(37,37,35,0.6); }
+
+  .pb-type { font-size: 0.62rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.75rem; }
+  .pack-box.bundle .pb-type { color: rgba(37,37,35,0.55); }
+
+  .pb-div { height: 1px; background: var(--rule); margin-bottom: 1.75rem; }
+  .pack-box.bundle .pb-div { background: rgba(37,37,35,0.18); }
+
+  .pb-feats { list-style: none; flex: 1; margin-bottom: 2rem; }
+  .pb-feats li {
+    padding: 0.48rem 0; border-top: 1px solid var(--rule);
+    font-size: 0.78rem; color: var(--text);
+    display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.5;
+  }
+  .pb-feats li:first-child { border-top: none; }
+  .pack-box.bundle .pb-feats li { border-color: rgba(37,37,35,0.14); color: var(--bg); }
+
+  .chk { color: var(--olive); font-size: 0.72rem; flex-shrink: 0; margin-top: 2px; }
+  .pack-box.bundle .chk { color: var(--bg); }
+
+  /* Prezzo separato barrato nel bundle */
+  .pb-was {
+    font-size: 0.72rem; color: var(--text-dim);
+    margin-bottom: 0.2rem; text-decoration: line-through;
+  }
+  .pack-box.bundle .pb-was { color: rgba(37,37,35,0.45); }
+
+  .pk-lbl { font-size: 0.54rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.3rem; }
+  .pack-box.bundle .pk-lbl { color: rgba(37,37,35,0.5); }
+
+  .pk-price { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 0.3rem; }
+  .pack-box.bundle .pk-price { color: var(--bg); }
+  .pk-price sup { font-size: 1.2rem; vertical-align: super; font-weight: 500; opacity: 0.7; }
+
+  .pk-alt { font-size: 0.72rem; color: var(--text-dim); margin-bottom: 1.5rem; }
+  .pack-box.bundle .pk-alt { color: rgba(37,37,35,0.5); }
+  .pk-alt span { color: var(--text); }
+  .pack-box.bundle .pk-alt span { color: rgba(37,37,35,0.75); font-weight: 500; }
+
+  .btn-dark-full {
+    display: block; width: 100%; text-align: center; padding: 0.9rem;
+    background: var(--bg); color: var(--white);
+    font-size: 0.63rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: var(--font-body); border: none; cursor: pointer; text-decoration: none; transition: background 0.25s;
+  }
+  .btn-dark-full:hover { background: var(--bg-mid); }
+
+  .btn-wire-full {
+    display: block; width: 100%; text-align: center; padding: 0.9rem;
+    border: 1px solid var(--rule-mid); color: var(--text);
+    font-size: 0.63rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: var(--font-body); background: transparent; cursor: pointer;
+    text-decoration: none; transition: all 0.25s;
+  }
+  .btn-wire-full:hover { border-color: var(--olive); color: var(--olive); }
+
+  /* SETTER GRID */
+  .s4grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+  }
+
+  .s4cell { background: var(--bg-mid); padding: 2rem; transition: background 0.3s; position: relative; overflow: hidden; }
+  .s4cell:hover { background: var(--bg-card); }
+  .s4cell::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--olive); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .s4cell:hover::after { transform: scaleX(1); }
+
+  .s4lbl { font-size: 0.54rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--olive); margin-bottom: 0.6rem; }
+  .s4title { font-family: var(--font-display); font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
+  .s4desc { font-size: 0.8rem; color: var(--text); line-height: 1.75; }
+
+  /* DAVIDE */
+  .davide-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+
+  .dav-left h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 500; line-height: 1.15; color: var(--white); margin-bottom: 1.25rem;
+  }
+  .dav-left h2 em { font-style: italic; color: var(--olive); }
+  .dav-left p { font-size: 0.88rem; color: var(--text); line-height: 1.9; margin-bottom: 0.9rem; }
+
+  .dav-stats {
+    display: grid; grid-template-columns: 1fr;
+    gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+  }
+
+  .ds-row {
+    background: var(--bg-mid); padding: 1.3rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .ds-lbl { font-size: 0.62rem; font-weight: 400; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); }
+  .ds-val { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; color: var(--olive); }
+
+  /* FINAL CTA */
+  .final {
+    background: var(--bg-mid); padding: 7rem 3rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+
+  .final::before {
+    content: 'ELITE';
+    position: absolute; font-family: var(--font-display);
+    font-size: 30vw; font-weight: 700; font-style: italic;
+    color: rgba(140,154,58,0.05); top: 50%; left: 50%;
+    transform: translate(-50%, -50%); letter-spacing: -0.04em;
+    white-space: nowrap; pointer-events: none;
+  }
+
+  .final-inner { position: relative; z-index: 1; }
+
+  .final h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 500; font-style: italic;
+    color: var(--white); line-height: 1.1; margin-bottom: 1rem;
+  }
+  .final h2 em { font-style: normal; color: var(--olive); }
+
+  .final p { font-size: 0.88rem; color: var(--text); margin-bottom: 2.5rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+
+  .final-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  .btn-olive-lg {
+    padding: 0.95rem 2.5rem; background: var(--olive); color: var(--bg);
+    font-size: 0.64rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: var(--font-body); border: none; cursor: pointer;
+    transition: background 0.25s; text-decoration: none; display: inline-block;
+  }
+  .btn-olive-lg:hover { background: var(--olive-light); }
+
+  .btn-wire-lg {
+    padding: 0.95rem 2.5rem; border: 1px solid var(--rule-mid); color: var(--text);
+    font-size: 0.64rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase;
+    font-family: var(--font-body); background: transparent; cursor: pointer;
+    transition: all 0.25s; text-decoration: none; display: inline-block;
+  }
+  .btn-wire-lg:hover { border-color: var(--olive); color: var(--olive); }
+
+  /* FOOTER */
+  footer { padding: 1.4rem 3rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; background: var(--bg); }
+  .f-l { font-family: var(--font-display); font-size: 0.78rem; font-style: italic; color: var(--text-dim); }
+  .f-r { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); }
+
+  /* ANIMS */
+  @keyframes up { from { opacity:0; transform: translateY(18px); } to { opacity:1; transform: translateY(0); } }
+  .hero-ey     { animation: up 0.7s ease both 0.1s; }
+  .hero-title  { animation: up 0.8s ease both 0.22s; }
+  .hero-sub    { animation: up 0.7s ease both 0.38s; }
+  .hero-prices { animation: up 0.7s ease both 0.48s; }
+  .hero-btns   { animation: up 0.7s ease both 0.58s; }
+
+  @media (max-width: 1100px) {
+    .packs-cols { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 900px) {
+    header { padding: 1rem 1.5rem; }
+    .nav { display: none; }
+    section { padding: 3.5rem 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 4rem 1.5rem 2.5rem; border-right: none; border-bottom: 1px solid var(--rule); }
+    .hero-right { padding: 2.5rem 1.5rem 3rem; }
+    .inc-grid { grid-template-columns: 1fr 1fr; }
+    .s4grid { grid-template-columns: 1fr; }
+    .timeline-grid { grid-template-columns: 1fr 1fr; }
+    .davide-grid { grid-template-columns: 1fr; }
+    .final { padding: 4.5rem 1.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+  @media (max-width: 540px) {
+    .inc-grid { grid-template-columns: 1fr; }
+    .timeline-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-mono">B</div>
+    <div class="brand-name">Battistelli Education &amp; Consulting</div>
+  </div>
+  <nav>
+    <ul class="nav">
+      <li><a href="#inclusions">Il percorso</a></li>
+      <li><a href="#packs">I pack</a></li>
+      <li><a href="#davide">Chi conduce</a></li>
+      <li><a href="#cta">Inizia</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-ey">Percorso individuale · Vendita B2B · Alta performance</div>
+    <h1 class="hero-title">
+      Il cambiamento<br>
+      che si vede<br>
+      nei <em>numeri.</em>
+    </h1>
+    <p class="hero-sub">Non un corso. Un percorso personale costruito attorno alla tua vendita, al tuo settore, ai tuoi clienti. Condotto da chi vende ogni giorno in prima linea.</p>
+    <div class="hero-prices">
+      <div class="hp">
+        <div class="hp-l">Percorso 1:1</div>
+        <div class="hp-v">€10.250</div>
+      </div>
+      <div class="hp">
+        <div class="hp-l">Setter Academy</div>
+        <div class="hp-v">€1.500</div>
+      </div>
+      <div class="hp">
+        <div class="hp-l">Bundle insieme</div>
+        <div class="hp-v">€11.000</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <button class="btn-olive" onclick="document.getElementById('packs').scrollIntoView({behavior:'smooth'})">Scopri i percorsi →</button>
+      <button class="btn-wire" onclick="window.location.href='mailto:info@battistellieducation.com?subject=Info%20Percorso%20Elite'">Scrivi ora</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="panel-lbl">Cosa è incluso nel 1:1</div>
+    <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">15 sessioni 1:1<span class="panel-sub">1 ora · con Davide Battistelli</span></div></div>
+    <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">6 sessioni di role play<span class="panel-sub">1 ora · scenari reali</span></div></div>
+    <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">Assistenza WhatsApp 7/7<span class="panel-sub">risposte entro ore</span></div></div>
+    <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">Script personalizzati<span class="panel-sub">scritti per il tuo mercato</span></div></div>
+    <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">Workbook dedicato<span class="panel-sub">esercizi e framework operativi</span></div></div>
+    <div class="panel-row"><div class="panel-dot"></div><div class="panel-txt">Check-up settimanali<span class="panel-sub">analisi business + KPI</span></div></div>
+  </div>
+</div>
+
+<!-- STRUTTURA -->
+<section style="background: var(--bg-mid);">
+  <div class="eyebrow">Come è strutturato il percorso 1:1</div>
+  <div class="timeline-grid">
+    <div class="tl-cell">
+      <div class="tl-num">01</div>
+      <div class="tl-phase">Fase 1</div>
+      <div class="tl-title">Business check-up iniziale</div>
+      <p class="tl-desc">Analizziamo dove sei: funnel attuale, numeri, trattative in corso. Niente si costruisce senza una base chiara.</p>
+    </div>
+    <div class="tl-cell">
+      <div class="tl-num">02</div>
+      <div class="tl-phase">Fase 2</div>
+      <div class="tl-title">Script, posizionamento, linguaggio</div>
+      <p class="tl-desc">Script personalizzati, framework obiezioni, struttura della conversazione di vendita. Strumenti concreti.</p>
+    </div>
+    <div class="tl-cell">
+      <div class="tl-num">03</div>
+      <div class="tl-phase">Fase 3</div>
+      <div class="tl-title">15 sessioni + 6 role play</div>
+      <p class="tl-desc">Lavoro operativo su casi reali. Ogni sessione lavora sulla tua situazione specifica — non su scenari astratti.</p>
+    </div>
+    <div class="tl-cell">
+      <div class="tl-num">∞</div>
+      <div class="tl-phase">Per tutta la durata</div>
+      <div class="tl-title">Supporto continuo e KPI</div>
+      <p class="tl-desc">WhatsApp 7/7. Check-up settimanali dei risultati. La crescita si monitora, si aggiusta, si accelera.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUSIONS -->
+<section id="inclusions">
+  <div class="eyebrow">Cosa ricevi nel Percorso 1:1</div>
+  <div class="inc-grid">
+    <div class="inc-cell"><div class="inc-num">— 01</div><div class="inc-title">15 sessioni 1:1</div><p class="inc-desc">Un'ora ciascuna con Davide Battistelli. Lavoro preciso, feedback reale, nessuna generalizzazione.</p></div>
+    <div class="inc-cell"><div class="inc-num">— 02</div><div class="inc-title">6 sessioni di role play</div><p class="inc-desc">Un'ora ciascuna su scenari costruiti sulla tua vendita reale: clienti difficili, obiezioni vere.</p></div>
+    <div class="inc-cell"><div class="inc-num">— 03</div><div class="inc-title">WhatsApp 7 giorni su 7</div><p class="inc-desc">Un cliente risponde in modo strano? Scrivi. Risposta entro ore — non quando capita.</p></div>
+    <div class="inc-cell"><div class="inc-num">— 04</div><div class="inc-title">Script personalizzati</div><p class="inc-desc">Scritti da zero per il tuo mercato, il tuo cliente tipo, il tuo modo di comunicare. Niente template.</p></div>
+    <div class="inc-cell"><div class="inc-num">— 05</div><div class="inc-title">Workbook dedicato</div><p class="inc-desc">Esercizi, framework, tracker di trattativa. Uno strumento che cresce con te durante il percorso.</p></div>
+    <div class="inc-cell"><div class="inc-num">— 06</div><div class="inc-title">Check-up settimanali</div><p class="inc-desc">Analisi business e KPI. Dove le trattative si bloccano, cosa si aggiusta, come si accelera.</p></div>
+  </div>
+</section>
+
+<!-- PACKS — 3 opzioni -->
+<section id="packs" style="background: var(--bg-mid);">
+  <div class="eyebrow">Scegli il percorso</div>
+  <div class="packs-cols">
+
+    <!-- SETTER ACADEMY -->
+    <div class="pack-box setter">
+      <div class="pb-tag">Setter Academy · 4 settimane</div>
+      <div class="pb-nm">Setter<span class="sub">Academy</span></div>
+      <div class="pb-type">Percorso di gruppo · Live</div>
+      <div class="pb-div"></div>
+      <ul class="pb-feats">
+        <li><span class="chk">◆</span>4 settimane di formazione verticale</li>
+        <li><span class="chk">◆</span>2 call live da 90 min a settimana</li>
+        <li><span class="chk">◆</span>1 sessione training + 1 roleplay / Q&A</li>
+        <li><span class="chk">◆</span>Script cold e warm call pronti</li>
+        <li><span class="chk">◆</span>Correzione errori in diretta</li>
+        <li><span class="chk">◆</span>Accesso community Skool</li>
+        <li><span class="chk">◆</span>Registrazioni di tutte le call</li>
+      </ul>
+      <div class="pk-lbl">Investimento</div>
+      <div class="pk-price"><sup>€</sup>1.500</div>
+      <p class="pk-alt" style="margin-bottom: 1.5rem;">Pagamento unico</p>
+      <button class="btn-wire-full" onclick="window.location.href='mailto:info@battistellieducation.com?subject=Setter%20Academy'">Inizia il percorso →</button>
+    </div>
+
+    <!-- PERCORSO 1:1 -->
+    <div class="pack-box solo">
+      <div class="pb-tag">Percorso Elite · 1:1</div>
+      <div class="pb-nm">Percorso<span class="sub">1:1</span></div>
+      <div class="pb-type">Percorso individuale</div>
+      <div class="pb-div"></div>
+      <ul class="pb-feats">
+        <li><span class="chk">◆</span>15 sessioni 1:1 da 1 ora con Davide Battistelli</li>
+        <li><span class="chk">◆</span>6 sessioni di role play da 1 ora</li>
+        <li><span class="chk">◆</span>Assistenza WhatsApp 7 giorni su 7</li>
+        <li><span class="chk">◆</span>Script personalizzati costruiti per te</li>
+        <li><span class="chk">◆</span>Workbook dedicato al percorso</li>
+        <li><span class="chk">◆</span>Analisi business iniziale</li>
+        <li><span class="chk">◆</span>Check-up settimanali dei risultati</li>
+      </ul>
+      <div class="pk-lbl">Investimento</div>
+      <div class="pk-price"><sup>€</sup>10.250</div>
+      <p class="pk-alt">oppure <span>€11.250 in 4 rate mensili</span></p>
+      <button class="btn-wire-full" onclick="window.location.href='mailto:info@battistellieducation.com?subject=Percorso%20Elite'">Inizia il percorso →</button>
+    </div>
+
+    <!-- BUNDLE -->
+    <div class="pack-box bundle">
+      <div class="saving-badge">Risparmi €750</div>
+      <div class="pb-tag">Bundle · Più conveniente</div>
+      <div class="pb-nm">Bundle<span class="sub">1:1 + Setter</span></div>
+      <div class="pb-type">Percorso completo</div>
+      <div class="pb-div"></div>
+      <ul class="pb-feats">
+        <li><span class="chk">◆</span>Tutto incluso nel Percorso 1:1</li>
+        <li><span class="chk">◆</span>Setter Academy completa inclusa</li>
+        <li><span class="chk">◆</span>4 settimane di formazione verticale</li>
+        <li><span class="chk">◆</span>2 call live da 90 min a settimana</li>
+        <li><span class="chk">◆</span>Script cold e warm call pronti</li>
+        <li><span class="chk">◆</span>Accesso community Skool</li>
+        <li><span class="chk">◆</span>Registrazioni di tutte le call</li>
+      </ul>
+      <div class="pk-lbl">Investimento</div>
+      <div class="pb-was">Se separati: €10.250 + €1.500 = €11.750</div>
+      <div class="pk-price"><sup>€</sup>11.000</div>
+      <p class="pk-alt">oppure <span>€11.800 in 4 rate mensili</span></p>
+      <button class="btn-dark-full" onclick="window.location.href='mailto:info@battistellieducation.com?subject=Bundle%20Elite%20Setter'">Scegli il bundle →</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- SETTER DETAILS -->
+<section>
+  <div class="eyebrow">Il percorso Setter — come funziona</div>
+  <div style="max-width: 600px; margin-bottom: 3rem;">
+    <h2 style="font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 500; line-height: 1.2; color: var(--white); margin-bottom: 0.75rem;">Classi piccole. <em style="font-style: italic; color: var(--olive);">Formazione verticale.</em></h2>
+    <p style="font-size: 0.86rem; color: var(--text); line-height: 1.9;">Per chi lavora nel primo contatto: qualifica, cold call, outreach. 5–10 persone per classe, zero generalismo. 4 settimane, 8 call live da 90 minuti.</p>
+  </div>
+  <div class="s4grid">
+    <div class="s4cell"><div class="s4lbl">Formato</div><div class="s4title">2 call da 90 min a settimana</div><p class="s4desc">Sessione 1: teorica e framework. Sessione 2: 100% role play su scenari reali. Entrambe con Davide Battistelli.</p></div>
+    <div class="s4cell"><div class="s4lbl">Contenuti</div><div class="s4title">Qualifica + presa appuntamento</div><p class="s4desc">Cold call: gatekeeper, apertura, qualifica, chiusura. Outreach: sequenze email e messaggi LinkedIn.</p></div>
+    <div class="s4cell"><div class="s4lbl">Classe</div><div class="s4title">5 — 10 partecipanti</div><p class="s4desc">Feedback personalizzato, lavoro sul caso concreto di ciascuno. Non corsi di massa.</p></div>
+    <div class="s4cell"><div class="s4lbl">Script inclusi</div><div class="s4title">Pronti da usare subito</div><p class="s4desc">Script cold e warm call scritti per il mercato italiano. Usabili da subito, non template generici.</p></div>
+  </div>
+</section>
+
+<!-- DAVIDE -->
+<section id="davide" style="background: var(--bg-mid);">
+  <div class="eyebrow">Chi conduce ogni sessione</div>
+  <div class="davide-grid">
+    <div class="dav-left">
+      <h2>Davide <em>Battistelli</em></h2>
+      <p>10 anni nella vendita professionale. High ticket, B2B e B2C, mercato italiano e svizzero. Ogni percorso è condotto direttamente da lui — non da assistenti, non da materiali preregistrati.</p>
+      <p>Ha costruito Battistelli Education &amp; Consulting per fare una cosa sola: trasferire quello che funziona davvero nella vendita reale, con il rigore di chi la fa ogni giorno.</p>
+      <p>Ogni sessione è preparata. Ogni script è scritto. Ogni role play è costruito attorno a situazioni reali portate dal cliente.</p>
+    </div>
+    <div class="dav-stats">
+      <div class="ds-row"><span class="ds-lbl">Anni di vendita</span><span class="ds-val">10+</span></div>
+      <div class="ds-row"><span class="ds-lbl">Specializzazione</span><span class="ds-val" style="font-size: 1.2rem; letter-spacing: -0.01em;">High ticket</span></div>
+      <div class="ds-row"><span class="ds-lbl">Supporto incluso</span><span class="ds-val">7/7</span></div>
+      <div class="ds-row"><span class="ds-lbl">Formato sessioni</span><span class="ds-val">1:1</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final" id="cta">
+  <div class="final-inner">
+    <h2>Tre percorsi.<br>Una sola <em>direzione.</em></h2>
+    <p>Acquistando il bundle risparmi €750 rispetto ai percorsi separati — e ottieni tutto in un unico investimento.</p>
+    <div class="final-btns">
+      <button class="btn-olive-lg" onclick="window.location.href='mailto:info@battistellieducation.com?subject=Bundle%20Elite%20Setter'">Bundle 1:1 + Setter — €11.000</button>
+      <button class="btn-wire-lg" onclick="window.location.href='mailto:info@battistellieducation.com?subject=Percorso%20Elite'">Solo 1:1 — €10.250</button>
+      <button class="btn-wire-lg" onclick="window.location.href='mailto:info@battistellieducation.com?subject=Setter%20Academy'">Solo Setter — €1.500</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-l">Battistelli Education &amp; Consulting · Proposta curata da Niccolò Pescarolo</div>
+  <div class="f-r">2025 · Riservata e confidenziale</div>
+</footer>
+
+</body>
+</html>
